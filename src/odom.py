@@ -17,6 +17,10 @@ class SpoofOdom:
 
         odom_broadcaster = tf.TransformBroadcaster()
 
+        self.vx = 0
+        self.vy = 0
+        self.vth = 0
+
         x = 0.0
         y = 0.0
         th = 0.0
@@ -24,7 +28,7 @@ class SpoofOdom:
         current_time = rospy.Time.now()
         last_time = rospy.Time.now()
 
-        r = rospy.Rate(1.0)
+        r = rospy.Rate(30)
         while not rospy.is_shutdown():
             current_time = rospy.Time.now()
 
