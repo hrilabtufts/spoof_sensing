@@ -57,13 +57,13 @@ class SpoofOdom:
             # next, we'll publish the odometry message over ROS
             odom = Odometry()
             odom.header.stamp = current_time
-            odom.header.frame_id = "odom"
+            odom.header.frame_id = odom_link
 
             # set the position
             odom.pose.pose = Pose(Point(x, y, 0.0), Quaternion(*odom_quat))
 
             # set the velocity
-            odom.child_frame_id = "base_link"
+            odom.child_frame_id = base_link
             odom.twist.twist = Twist(
                 Vector3(self.vx, self.vy, 0), Vector3(0, 0, self.vth)
             )
