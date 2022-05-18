@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 """
 quick 'n dirty node to open a topic on /scan, useful only really for
@@ -23,7 +23,7 @@ class SpoofLidar:
         msg.scan_time = 0
 
         arr = []
-        for _ in range(0, ceil((msg.angle_max - msg.angle_min) / msg.angle_increment)):
+        for _ in range(0, int(ceil((msg.angle_max - msg.angle_min) / msg.angle_increment))):
             arr.append(10)
 
         msg.ranges = arr
